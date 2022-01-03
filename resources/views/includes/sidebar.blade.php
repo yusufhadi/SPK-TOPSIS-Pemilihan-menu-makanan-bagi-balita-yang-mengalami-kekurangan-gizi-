@@ -15,7 +15,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Admin</a>
+                <a href="{{ route('home') }}" class="d-block">Admin</a>
             </div>
         </div>
 
@@ -25,7 +25,7 @@
                 <!-- Add icons to the links using the .nav-icon class
        with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
+                    <a href="{{ route('home') }}" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -34,9 +34,9 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
+                        <i class="nav-icon fas fa-table"></i>
                         <p>
-                            Forms
+                            Table
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -44,16 +44,34 @@
                         <li class="nav-item">
                             <a href="{{ route('criteria') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>General Elements</p>
+                                <p>Kriteria</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('umur') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Sub Kriteria Umur</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('berat') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Sub Berat Badan</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('tinggi') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Sub Tinggi Badan</p>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
+                        <i class="nav-icon fas fa-edit"></i>
                         <p>
-                            Tables
+                            Form
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>

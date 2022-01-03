@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/', [DashboardController::class, 'index']);
-
+Route::get('/', [DashboardController::class, 'index'])->name('home');
 Route::get('/criteria', [CriteriaController::class, 'criteria'])->name('criteria');
+Route::get('/umur', [CriteriaController::class, 'umur'])->name('umur');
+Route::get('/berat', [CriteriaController::class, 'berat'])->name('berat');
+Route::get('/tinggi', [CriteriaController::class, 'tinggi'])->name('tinggi');

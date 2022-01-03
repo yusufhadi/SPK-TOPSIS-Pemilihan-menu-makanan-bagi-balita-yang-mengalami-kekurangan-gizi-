@@ -11,4 +11,19 @@ class CriteriaController extends Controller
     {
         return view("pages.admin.criteria");
     }
+
+    public function umur(Request $request)
+    {
+        return view("pages.admin.umur");
+    }
+
+    public function berat(Request $request)
+    {
+        return view("pages.admin.berat");
+    }
+
+    public function tinggi(Request $request)
+    {
+        return view("pages.admin.tinggi");
+    }
 }
