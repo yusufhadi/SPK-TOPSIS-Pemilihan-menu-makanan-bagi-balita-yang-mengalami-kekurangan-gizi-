@@ -10,12 +10,6 @@
                     <div class="col-sm-6">
                         <h1 class="m-0">Dashboard</h1>
                     </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
-                    </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
@@ -41,23 +35,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Trident</td>
-                                            <td>Trident</td>
-                                            <td>Internet
-                                                Explorer 4.0
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Misc</td>
-                                            <td>PSP browser</td>
-                                            <td>PSP browser</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Other browsers</td>
-                                            <td>All others</td>
-                                            <td>All others</td>
-                                        </tr>
+                                        @forelse ($weights as $weight)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $weight->sub_criteria }}</td>
+                                                <td>{{ $weight->bobot }}</td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="2"> Data Kosong</td>
+                                            </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>
