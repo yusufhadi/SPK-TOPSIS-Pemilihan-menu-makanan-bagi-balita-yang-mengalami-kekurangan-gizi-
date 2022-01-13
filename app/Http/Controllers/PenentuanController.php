@@ -29,7 +29,7 @@ class PenentuanController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.formData');
     }
 
     /**

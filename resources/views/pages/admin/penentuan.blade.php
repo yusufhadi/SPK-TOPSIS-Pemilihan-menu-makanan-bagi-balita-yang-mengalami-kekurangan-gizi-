@@ -27,8 +27,8 @@
                                         <h3 class="card-title">Data Penentuan Menu Makanan Bagi Balita</h3>
                                     </div>
                                     <div class="p-2 bd-highlight">
-                                        <a href="#" class="btn btn-info d-flex justify-content-end">
-                                            Tambahkan SKPD
+                                        <a href="{{ route('form') }}" class="btn btn-info d-flex justify-content-end">
+                                            Tambahkan Data
                                         </a>
                                     </div>
                                 </div>

@@ -27,3 +27,4 @@ Route::get('/umur', [CriteriaController::class, 'umur'])->name('umur');
 Route::get('/berat', [CriteriaController::class, 'berat'])->name('berat');
 Route::get('/tinggi', [CriteriaController::class, 'tinggi'])->name('tinggi');
 Route::get('/penentuan', [PenentuanController::class, 'index'])->name('penentuan');
+Route::get('/penentuan/form', [PenentuanController::class, 'create'])->name('form');
