@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CriteriaController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\PenentuanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,4 @@ Route::get('/criteria', [CriteriaController::class, 'criteria'])->name('criteria
 Route::get('/umur', [CriteriaController::class, 'umur'])->name('umur');
 Route::get('/berat', [CriteriaController::class, 'berat'])->name('berat');
 Route::get('/tinggi', [CriteriaController::class, 'tinggi'])->name('tinggi');
+Route::get('/penentuan', [PenentuanController::class, 'index'])->name('penentuan');
