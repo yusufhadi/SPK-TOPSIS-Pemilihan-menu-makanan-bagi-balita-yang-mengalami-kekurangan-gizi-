@@ -43,7 +43,10 @@ class PenentuanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        Penentuan::create($data);
+        return redirect()->route('penentuan');
     }
 
     /**
@@ -65,7 +68,14 @@ class PenentuanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $a = Penentuan::findOrFail($id);
+
+        $items = SubCriteria::get();
+
+        return view('pages.admin.editFormData', [
+            'a' => $a,
+            'items' => $items
+        ]);
     }
 
     /**
@@ -77,7 +87,13 @@ class PenentuanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $a = Penentuan::findOrFail($id);
+
+        $a->update($data);
+
+        return redirect()->route('penentuan');
     }
 
     /**
@@ -88,6 +104,9 @@ class PenentuanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Penentuan::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('penentuan');
     }
 }

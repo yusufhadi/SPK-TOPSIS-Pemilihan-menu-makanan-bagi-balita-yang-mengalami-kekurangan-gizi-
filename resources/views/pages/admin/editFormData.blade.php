@@ -24,7 +24,7 @@
                             <div class="card-header">
                                 <div class="d-flex bd-highlight">
                                     <div class="p-2 flex-grow-1 bd-highlight">
-                                        <h3 class="card-title">Masukkan Data Balita</h3>
+                                        <h3 class="card-title">Ubat Data Balita</h3>
                                     </div>
                                 </div>
                             </div>
@@ -33,17 +33,18 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <form action="{{ route('tambah-data') }}" method="POST">
+                                        <form action="{{ route('update-data', $a->id) }}" method="POST">
+                                            @method('PUT')
                                             @csrf
                                             <div class="form-group">
                                                 <label for="nama">Masukkan Nama Balita</label>
                                                 <input type="name" class="form-control" name="nama"
-                                                    placeholder="Masukkan nama balita">
+                                                    placeholder="Masukkan nama balita" value="{{ $a->nama }}">
                                             </div>
                                             <div class="form-group">
                                                 <label for="umur">Umur</label>
                                                 <select class="form-control select2" style="width: 100%;" name="umur">
-                                                    <option selected="selected">Pilih</option>
+                                                    <option selected="selected">{{ $a->umur }}</option>
                                                     @foreach ($items as $item)
                                                         @if ($item->criteria_id == 1)
                                                             <option>{{ $item->sub_criteria }}</option>
@@ -54,7 +55,7 @@
                                             <div class="form-group">
                                                 <label for="beratBadan">Berat Badan</label>
                                                 <select class="form-control select2" style="width: 100%;" name="beratBadan">
-                                                    <option selected="selected">Pilih</option>
+                                                    <option selected="selected">{{ $a->beratBadan }}</option>
                                                     @foreach ($items as $item)
                                                         @if ($item->criteria_id == 2)
                                                             <option>{{ $item->sub_criteria }}</option>
@@ -66,7 +67,8 @@
                                                 <label for="tinggiBadan">Tinggi Badan</label>
                                                 <select class="form-control select2" style="width: 100%;"
                                                     name="tinggiBadan">
-                                                    <option selected="selected">Pilih</option>
+                                                    <option selected="selected">{{ $a->tinggiBadan }}
+                                                    </option>
                                                     @foreach ($items as $item)
                                                         @if ($item->criteria_id == 3)
                                                             <option>{{ $item->sub_criteria }}</option>

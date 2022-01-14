@@ -24,7 +24,7 @@
                             <div class="card-header">
                                 <div class="d-flex bd-highlight">
                                     <div class="p-2 flex-grow-1 bd-highlight">
-                                        <h3 class="card-title">Data Penentuan Menu Makanan Bagi Balita</h3>
+                                        <h3 class="card-title">Data Balita</h3>
                                     </div>
                                     <div class="p-2 bd-highlight">
                                         <a href="{{ route('form') }}" class="btn btn-info d-flex justify-content-end">
@@ -58,6 +58,14 @@
                                                 <td>
                                                     <a href="#" class="btn btn-primary btn-sm mr-1"> <i
                                                             class="fas fa-eye"></i>
+                                                    </a>
+                                                    <a href="{{ route('edit-data', $item->id) }}"
+                                                        class="btn btn-warning btn-sm mr-1">
+                                                        <i class="fa fa-pencil-alt"></i>
+                                                    </a>
+                                                    <a href="{{ route('hapus-data', $item->id) }}"
+                                                        class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-trash-alt"></i>
                                                     </a>
                                                 </td>
                                             </tr>

@@ -28,3 +28,7 @@ Route::get('/berat', [CriteriaController::class, 'berat'])->name('berat');
 Route::get('/tinggi', [CriteriaController::class, 'tinggi'])->name('tinggi');
 Route::get('/penentuan', [PenentuanController::class, 'index'])->name('penentuan');
 Route::get('/penentuan/form', [PenentuanController::class, 'create'])->name('form');
+Route::post('/penentuan/form/tambah-data', [PenentuanController::class, 'store'])->name('tambah-data');
+Route::get('/penentuan/form/edit-data/{id}', [PenentuanController::class, 'edit'])->name('edit-data');
+Route::put('/penentuan/form/update-data/{id}', [PenentuanController::class, 'update'])->name('update-data');
+Route::get('/penentuan/form/hapus-data/{id}', [PenentuanController::class, 'destroy'])->name('hapus-data');
