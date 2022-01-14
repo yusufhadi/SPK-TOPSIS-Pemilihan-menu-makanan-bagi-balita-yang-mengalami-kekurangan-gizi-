@@ -42,21 +42,33 @@
                                             <label>Umur</label>
                                             <select class="form-control select2" style="width: 100%;">
                                                 <option selected="selected">Pilih</option>
-                                                <option>Alaska</option>
+                                                @foreach ($items as $item)
+                                                    @if ($item->criteria_id == 1)
+                                                        <option>{{ $item->sub_criteria }}</option>
+                                                    @endif
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Berat Badan</label>
                                             <select class="form-control select2" style="width: 100%;">
                                                 <option selected="selected">Pilih</option>
-                                                <option>Alaska</option>
+                                                @foreach ($items as $item)
+                                                    @if ($item->criteria_id == 2)
+                                                        <option>{{ $item->sub_criteria }}</option>
+                                                    @endif
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Tinggi Badan</label>
                                             <select class="form-control select2" style="width: 100%;">
                                                 <option selected="selected">Pilih</option>
-                                                <option>Alaska</option>
+                                                @foreach ($items as $item)
+                                                    @if ($item->criteria_id == 3)
+                                                        <option>{{ $item->sub_criteria }}</option>
+                                                    @endif
+                                                @endforeach
                                             </select>
                                         </div>
 
