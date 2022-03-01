@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CriteriaController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\PenentuanController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,3 +34,9 @@ Route::post('/penentuan/form/tambah-data', [PenentuanController::class, 'store']
 Route::get('/penentuan/form/edit-data/{id}', [PenentuanController::class, 'edit'])->name('edit-data');
 Route::put('/penentuan/form/update-data/{id}', [PenentuanController::class, 'update'])->name('update-data');
 Route::get('/penentuan/form/hapus-data/{id}', [PenentuanController::class, 'destroy'])->name('hapus-data');
+Route::get('alternatif', [AlternatifController::class, 'index'])->name('alternatif');
+Route::get('alternatif/form', [AlternatifController::class, 'create'])->name('form-alternatif');
+Route::post('alternatif/form/tambah-data', [AlternatifController::class, 'store'])->name('tambah-data-alternatif');
+Route::get('alternatif/form/edit-data/{id}', [AlternatifController::class, 'edit'])->name('edit-data-alternatif');
+Route::put('alternatif/form/update-data/{id}', [AlternatifController::class, 'update'])->name('update-data-alternatif');
+Route::get('alternatif/form/hapus-data/{id}', [AlternatifController::class, 'destroy'])->name('hapus-data-alternatif');

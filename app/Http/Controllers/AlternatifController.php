@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Penentuan;
-use App\Models\SubCriteria;
+use App\Models\Alternatif;
 use Illuminate\Http\Request;
+use App\Models\SubCriteria;
 
-
-class PenentuanController extends Controller
+class AlternatifController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class PenentuanController extends Controller
      */
     public function index()
     {
-        $items = Penentuan::get();
-        return view('pages.admin.penentuan', [
+        $items = Alternatif::get();
+        return view('pages.admin.alternatif', [
             'items' => $items
         ]);
     }
@@ -30,7 +29,7 @@ class PenentuanController extends Controller
     public function create()
     {
         $items = SubCriteria::get();
-        return view('pages.admin.formData', [
+        return view('pages.admin.formAlternatif', [
             'items' => $items
         ]);
     }
@@ -44,10 +43,9 @@ class PenentuanController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        // dd($data);
 
-        Penentuan::create($data);
-        return redirect()->route('penentuan');
+        Alternatif::create($data);
+        return redirect()->route('alternatif');
     }
 
     /**
@@ -69,11 +67,11 @@ class PenentuanController extends Controller
      */
     public function edit($id)
     {
-        $a = Penentuan::findOrFail($id);
+        $a = Alternatif::findOrFail($id);
 
         $items = SubCriteria::get();
 
-        return view('pages.admin.editFormData', [
+        return view('pages.admin.editFormAlternatif', [
             'a' => $a,
             'items' => $items
         ]);
@@ -90,11 +88,11 @@ class PenentuanController extends Controller
     {
         $data = $request->all();
 
-        $a = Penentuan::findOrFail($id);
+        $a = Alternatif::findOrFail($id);
 
         $a->update($data);
 
-        return redirect()->route('penentuan');
+        return redirect()->route('alternatif');
     }
 
     /**
@@ -105,9 +103,9 @@ class PenentuanController extends Controller
      */
     public function destroy($id)
     {
-        $item = Penentuan::findOrFail($id);
+        $item = Alternatif::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('penentuan');
+        return redirect()->route('alternatif');
     }
 }
