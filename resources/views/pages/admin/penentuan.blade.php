@@ -44,6 +44,7 @@
                                             <th>Umur</th>
                                             <th>Tinggi Badan</th>
                                             <th>Berat Badan</th>
+                                            <th>Alergi</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -55,6 +56,7 @@
                                                 <td>{{ $item->umur }}</td>
                                                 <td>{{ $item->beratBadan }}</td>
                                                 <td>{{ $item->tinggiBadan }}</td>
+                                                <td>{{ $item->alergi }}</td>
                                                 <td>
                                                     <a href="#" class="btn btn-primary btn-sm mr-1"> <i
                                                             class="fas fa-eye"></i>
@@ -71,7 +73,7 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td colspan="6" class="text-center">Tidak Ada Data</td>
+                                                <td colspan="7" class="text-center">Tidak Ada Data</td>
                                             </tr>
                                         @endforelse
                                     </tbody>

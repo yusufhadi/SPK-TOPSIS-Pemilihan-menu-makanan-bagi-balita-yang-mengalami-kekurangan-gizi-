@@ -13,6 +13,7 @@ class Penentuan extends Model
         'nama',
         'umur',
         'beratBadan',
-        'tinggiBadan'
+        'tinggiBadan',
+        'alergi'
     ];
 }

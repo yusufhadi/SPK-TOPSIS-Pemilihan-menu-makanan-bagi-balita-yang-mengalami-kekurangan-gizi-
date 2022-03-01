@@ -76,6 +76,18 @@
                                                     @endforeach
                                                 </select>
                                             </div>
+                                            <div class="form-group">
+                                                <label for="alergi">Alergi</label>
+                                                <select class="form-control select2" style="width: 100%;" name="alergi">
+                                                    <option selected="selected">{{ $a->alergi }}
+                                                    </option>
+                                                    @foreach ($items as $item)
+                                                        @if ($item->criteria_id == 4)
+                                                            <option>{{ $item->sub_criteria }}</option>
+                                                        @endif
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                             <button class="btn btn-primary" type="submit">Submit</button>
                                         </form>
                                     </div>

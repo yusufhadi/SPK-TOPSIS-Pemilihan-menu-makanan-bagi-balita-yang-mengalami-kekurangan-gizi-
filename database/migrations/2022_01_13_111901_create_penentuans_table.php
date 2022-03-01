@@ -19,6 +19,7 @@ class CreatePenentuansTable extends Migration
             $table->string('umur');
             $table->string('tinggiBadan');
             $table->string('beratBadan');
+            $table->string('alergi');
             $table->timestamps();
         });
     }
