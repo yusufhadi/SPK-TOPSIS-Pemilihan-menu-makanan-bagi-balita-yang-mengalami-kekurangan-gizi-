@@ -44,6 +44,7 @@ class PenentuanController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        dd($data);
 
         Penentuan::create($data);
         return redirect()->route('penentuan');

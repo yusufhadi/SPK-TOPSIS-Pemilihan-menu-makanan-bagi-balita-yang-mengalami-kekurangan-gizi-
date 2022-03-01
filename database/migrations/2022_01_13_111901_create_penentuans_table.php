@@ -17,9 +17,13 @@ class CreatePenentuansTable extends Migration
             $table->id();
             $table->string('nama');
             $table->string('umur');
+            $table->string('bobot_umur');
             $table->string('tinggiBadan');
+            // $table->string('bobot_tinggiBadan');
             $table->string('beratBadan');
+            // $table->string('bobot_beratBadan');
             $table->string('alergi');
+            // $table->string('bobot_alergi');
             $table->timestamps();
         });
     }

@@ -51,13 +51,20 @@
                                                     @endforeach
                                                 </select>
                                             </div>
+                                            <div class="form-group" hidden>
+                                                <label for="bobot_umur">bobot_Umur</label>
+                                                <select class="form-control select2" style="width: 100%;" name="bobot_umur">
+                                                    <option>{{ $item->id }}</option>
+                                                </select>
+                                            </div>
                                             <div class="form-group">
                                                 <label for="beratBadan">Berat Badan</label>
                                                 <select class="form-control select2" style="width: 100%;" name="beratBadan">
                                                     <option selected="selected">Pilih</option>
                                                     @foreach ($items as $item)
                                                         @if ($item->criteria_id == 2)
-                                                            <option>{{ $item->sub_criteria }}</option>
+                                                            <option>{{ $item->sub_criteria }} ({{ $item->range }})
+                                                            </option>
                                                         @endif
                                                     @endforeach
                                                 </select>
@@ -69,7 +76,8 @@
                                                     <option selected="selected">Pilih</option>
                                                     @foreach ($items as $item)
                                                         @if ($item->criteria_id == 3)
-                                                            <option>{{ $item->sub_criteria }}</option>
+                                                            <option>{{ $item->sub_criteria }} ({{ $item->range }})
+                                                            </option>
                                                         @endif
                                                     @endforeach
                                                 </select>

@@ -12,8 +12,12 @@ class Penentuan extends Model
     protected $fillable = [
         'nama',
         'umur',
+        'bobot_umur',
         'beratBadan',
+        // 'bobot_beratBadan',
         'tinggiBadan',
+        // 'bobot_tinggiBadan',
         'alergi'
+        // 'bobot_alergi'
     ];
 }
