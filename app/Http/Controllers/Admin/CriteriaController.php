@@ -43,4 +43,12 @@ class CriteriaController extends Controller
             'highs' => $highs
         ]);
     }
+
+    public function alergi(Request $request)
+    {
+        $allergy = SubCriteria::where('criteria_id', '4')->get();
+        return view('pages.admin.alergi', [
+            'allergy' => $allergy
+        ]);
+    }
 }

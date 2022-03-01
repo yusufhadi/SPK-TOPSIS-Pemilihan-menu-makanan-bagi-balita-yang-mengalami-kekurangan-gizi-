@@ -16,7 +16,9 @@ class CreateSubCriteriasTable extends Migration
         Schema::create('sub_criterias', function (Blueprint $table) {
             $table->id();
             $table->foreignId('criteria_id')->constrained();
+            $table->string('umur');
             $table->string('sub_criteria');
+            $table->string('range');
             $table->integer('bobot');
             $table->timestamps();
         });

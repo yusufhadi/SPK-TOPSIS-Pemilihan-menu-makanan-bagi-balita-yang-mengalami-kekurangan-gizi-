@@ -30,7 +30,9 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
+                                            <th>Umur</th>
                                             <th>Sub Kriteria</th>
+                                            <th>Range</th>
                                             <th>Bobot</th>
                                         </tr>
                                     </thead>
@@ -38,11 +40,12 @@
                                         @forelse ($highs as $high)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $high->umur }}</td>
                                                 <td>{{ $high->sub_criteria }}</td>
+                                                <td>{{ $high->range }}</td>
                                                 <td>{{ $high->bobot }}</td>
                                             </tr>
                                         @empty
-
                                         @endforelse
                                     </tbody>
                                 </table>

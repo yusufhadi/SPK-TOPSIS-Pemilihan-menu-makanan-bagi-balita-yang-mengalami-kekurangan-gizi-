@@ -22,7 +22,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Data Sub Kriteria Berat Badan</h3>
+                                <h3 class="card-title">Data Sub Kriteria Alergi</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -30,25 +30,18 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Umur</th>
                                             <th>Sub Kriteria</th>
-                                            <th>Range</th>
                                             <th>Bobot</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse ($weights as $weight)
+                                        @forelse ($allergy as $allerg)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $weight->umur }}</td>
-                                                <td>{{ $weight->sub_criteria }}</td>
-                                                <td>{{ $weight->range }}</td>
-                                                <td>{{ $weight->bobot }}</td>
+                                                <td>{{ $allerg->sub_criteria }}</td>
+                                                <td>{{ $allerg->bobot }}</td>
                                             </tr>
                                         @empty
-                                            <tr>
-                                                <td colspan="5"> Data Kosong</td>
-                                            </tr>
                                         @endforelse
                                     </tbody>
                                 </table>

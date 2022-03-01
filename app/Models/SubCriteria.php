@@ -11,7 +11,9 @@ class SubCriteria extends Model
 
     protected $fillable = [
         'criteria_id',
+        'umur',
         'sub_criteria',
+        'range',
         'bobot'
     ];
 }

@@ -30,6 +30,11 @@ class CriteriaTableSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s', time()),
                 'updated_at' => date('Y-m-d H:i:s', time()),
             ],
+            [
+                'kriteria' => 'Alergi',
+                'created_at' => date('Y-m-d H:i:s', time()),
+                'updated_at' => date('Y-m-d H:i:s', time()),
+            ],
         ];
 
         Criteria::insert($criterias);
