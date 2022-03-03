@@ -45,8 +45,32 @@ class PenentuanController extends Controller
     {
         $data = $request->all();
         // dd($data);
+        // Penentuan::create($data);
 
-        Penentuan::create($data);
+        $Penentuan = new Penentuan;
+        $Penentuan->nama = $request->nama;
+
+        $p1 = $request->bobot_umur_penentuan;
+        $arp1 = explode(" - ", $p1);
+        $Penentuan->penentuan_umur = $arp1[0];
+        $Penentuan->umur = $arp1[1];
+
+        $p2 = $request->bobot_beratBadan_penentuan;
+        $arp2 = explode(" - ", $p2);
+        $Penentuan->penentuan_beratBadan = $arp2[0];
+        $Penentuan->beratBadan = $arp2[1];
+
+        $p3 = $request->bobot_tinggiBadan_penentuan;
+        $arp3 = explode(" - ", $p3);
+        $Penentuan->penentuan_tinggiBadan = $arp3[0];
+        $Penentuan->tinggiBadan = $arp3[1];
+
+        $p4 = $request->bobot_alergi_penentuan;
+        $arp4 = explode(" - ", $p4);
+        $Penentuan->penentuan_alergi = $arp4[0];
+        $Penentuan->alergi = $arp4[1];
+        // dd($Penentuan);
+        $Penentuan->save();
         return redirect()->route('penentuan');
     }
 

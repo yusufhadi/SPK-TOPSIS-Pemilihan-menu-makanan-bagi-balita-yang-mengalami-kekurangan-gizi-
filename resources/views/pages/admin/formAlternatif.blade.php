@@ -55,13 +55,6 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            {{-- <div class="form-group" hidden>
-                                                <label for="bobot_umur">bobot_Umur</label>
-                                                <select class="form-control select2" style="width: 100%;" name="bobot_umur">
-                                                    <option value="{{ $item->id == $item->sub_criteria }}">
-                                                        {{ $item->bobot }}</option>
-                                                </select>
-                                            </div> --}}
                                             <div class="form-group">
                                                 <label for="bobot_beratBadan_alternatif">Berat Badan</label>
                                                 <select class="form-control select2" style="width: 100%;"

@@ -16,8 +16,8 @@ class Alternatif extends Model
         'beratBadan',
         'bobot_beratBadan',
         'tinggiBadan',
-        'bobot_tinggiBadan_alternatif',
+        'bobot_tinggiBadan',
         'alergi',
-        'bobot_alergi_alternatif'
+        'bobot_alergi'
     ];
 }

@@ -12,12 +12,12 @@ class Penentuan extends Model
     protected $fillable = [
         'nama',
         'umur',
-        'bobot_umur',
+        'penentuan_umur',
         'beratBadan',
-        // 'bobot_beratBadan',
+        'penentuan_beratBadan',
         'tinggiBadan',
-        // 'bobot_tinggiBadan',
-        'alergi'
-        // 'bobot_alergi'
+        'penentuan_tinggiBadan',
+        'alergi',
+        'penentuan_alergi'
     ];
 }
