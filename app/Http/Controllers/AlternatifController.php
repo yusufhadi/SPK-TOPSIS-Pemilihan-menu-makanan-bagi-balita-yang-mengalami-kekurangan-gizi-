@@ -42,9 +42,65 @@ class AlternatifController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
 
-        Alternatif::create($data);
+        $data = $request->all();
+        // dd($data);
+        // Alternatif::create($data);
+        $Alternatif = new Alternatif;
+        $Alternatif->alternatif = $request->alternatif;
+        $k1 = $request->bobot_umur_alternatif;
+        $ark1 = explode(" - ", $k1);
+        $Alternatif->bobot_umur = $ark1[0];
+        $Alternatif->umur = $ark1[1];
+
+        $k2 = $request->bobot_beratBadan_alternatif;
+        $ark2 = explode(" - ", $k2);
+        $Alternatif->bobot_beratBadan = $ark2[0];
+        $Alternatif->beratBadan = $ark2[1];
+
+        $k3 = $request->bobot_tinggiBadan_alternatif;
+        $ark3 = explode(" - ", $k3);
+        $Alternatif->bobot_tinggiBadan = $ark3[0];
+        $Alternatif->tinggiBadan = $ark3[1];
+
+        $k4 = $request->bobot_alergi_alternatif;
+        $ark4 = explode(" - ", $k4);
+        $Alternatif->bobot_alergi = $ark4[0];
+        $Alternatif->alergi = $ark4[1];
+        $Alternatif->save();
+        return redirect()->route('alternatif');
+    }
+
+    public function update(Request $request)
+    {
+
+        $data = $request->all();
+        // dd($data);
+        // Alternatif::create($data);
+        $id = $request->id;
+        $Alternatif = Alternatif::where('id', $id)->first();
+        $Alternatif->alternatif = $request->alternatif;
+        // dd($Alternatif);
+        $k1 = $request->bobot_umur_alternatif;
+        $ark1 = explode(" - ", $k1);
+        $Alternatif->bobot_umur = $ark1[0];
+        $Alternatif->umur = $ark1[1];
+
+        $k2 = $request->bobot_beratBadan_alternatif;
+        $ark2 = explode(" - ", $k2);
+        $Alternatif->bobot_beratBadan = $ark2[0];
+        $Alternatif->beratBadan = $ark2[1];
+
+        $k3 = $request->bobot_tinggiBadan_alternatif;
+        $ark3 = explode(" - ", $k3);
+        $Alternatif->bobot_tinggiBadan = $ark3[0];
+        $Alternatif->tinggiBadan = $ark3[1];
+
+        $k4 = $request->bobot_alergi_alternatif;
+        $ark4 = explode(" - ", $k4);
+        $Alternatif->bobot_alergi = $ark4[0];
+        $Alternatif->alergi = $ark4[1];
+        $Alternatif->save();
         return redirect()->route('alternatif');
     }
 
@@ -84,16 +140,34 @@ class AlternatifController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        $data = $request->all();
+    // public function update(Request $request, $id)
+    // {
+    //     $data = $request->all();
+    //     $a = Alternatif::findOrFail($id);
+    //     $Alternatif->alternatif = $request->alternatif;
+    //     $k1 = $request->bobot_umur_alternatif;
+    //     $ark1 = explode(" - ", $k1);
+    //     $Alternatif->bobot_umur = $ark1[0];
+    //     $Alternatif->umur = $ark1[1];
 
-        $a = Alternatif::findOrFail($id);
+    //     $k2 = $request->bobot_beratBadan_alternatif;
+    //     $ark2 = explode(" - ", $k2);
+    //     $Alternatif->bobot_beratBadan = $ark2[0];
+    //     $Alternatif->beratBadan = $ark2[1];
 
-        $a->update($data);
+    //     $k3 = $request->bobot_tinggiBadan_alternatif;
+    //     $ark3 = explode(" - ", $k3);
+    //     $Alternatif->bobot_tinggiBadan = $ark3[0];
+    //     $Alternatif->tinggiBadan = $ark3[1];
 
-        return redirect()->route('alternatif');
-    }
+    //     $k4 = $request->bobot_alergi_alternatif;
+    //     $ark4 = explode(" - ", $k4);
+    //     $Alternatif->bobot_alergi = $ark4[0];
+    //     $Alternatif->alergi = $ark4[1];
+    //     $a->update($data);
+
+    //     return redirect()->route('alternatif');
+    // }
 
     /**
      * Remove the specified resource from storage.

@@ -83,17 +83,17 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('penentuan') }}" class="nav-link">
+                            <a href="{{ route('alternatif') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Penentuan</p>
+                                <p>Alternatif</p>
                             </a>
                         </li>
                     </ul>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('alternatif') }}" class="nav-link">
+                            <a href="{{ route('penentuan') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Alternatif</p>
+                                <p>Penentuan</p>
                             </a>
                         </li>
                     </ul>

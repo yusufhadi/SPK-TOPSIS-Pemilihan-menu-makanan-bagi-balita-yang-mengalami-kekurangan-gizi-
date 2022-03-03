@@ -12,8 +12,12 @@ class Alternatif extends Model
     protected $fillable = [
         'alternatif',
         'umur',
+        'bobot_umur',
         'beratBadan',
+        'bobot_beratBadan',
         'tinggiBadan',
-        'alergi'
+        'bobot_tinggiBadan_alternatif',
+        'alergi',
+        'bobot_alergi_alternatif'
     ];
 }

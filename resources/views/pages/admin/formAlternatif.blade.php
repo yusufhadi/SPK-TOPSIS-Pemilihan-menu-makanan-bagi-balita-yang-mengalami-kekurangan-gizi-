@@ -41,54 +41,70 @@
                                                     placeholder="Masukkan nama alternatif">
                                             </div>
                                             <div class="form-group">
-                                                <label for="umur">Umur</label>
-                                                <select class="form-control select2" style="width: 100%;" name="umur">
+                                                <label for="bobot_umur_alternatif">Umur</label>
+                                                <select class="form-control select2" style="width: 100%;"
+                                                    name="bobot_umur_alternatif">
                                                     <option selected="selected">Pilih</option>
                                                     @foreach ($items as $item)
                                                         @if ($item->criteria_id == 1)
-                                                            <option>{{ $item->sub_criteria }}</option>
+                                                            <option
+                                                                value="{{ $item->bobot . ' - ' . $item->sub_criteria }}">
+                                                                {{ $item->sub_criteria }}
+                                                            </option>
                                                         @endif
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <div class="form-group" hidden>
+                                            {{-- <div class="form-group" hidden>
                                                 <label for="bobot_umur">bobot_Umur</label>
                                                 <select class="form-control select2" style="width: 100%;" name="bobot_umur">
-                                                    <option>{{ $item->id }}</option>
+                                                    <option value="{{ $item->id == $item->sub_criteria }}">
+                                                        {{ $item->bobot }}</option>
                                                 </select>
-                                            </div>
+                                            </div> --}}
                                             <div class="form-group">
-                                                <label for="beratBadan">Berat Badan</label>
-                                                <select class="form-control select2" style="width: 100%;" name="beratBadan">
+                                                <label for="bobot_beratBadan_alternatif">Berat Badan</label>
+                                                <select class="form-control select2" style="width: 100%;"
+                                                    name="bobot_beratBadan_alternatif">
                                                     <option selected="selected">Pilih</option>
                                                     @foreach ($items as $item)
                                                         @if ($item->criteria_id == 2)
-                                                            <option>{{ $item->sub_criteria }} ({{ $item->range }})
+                                                            <option
+                                                                value="{{ $item->bobot . ' - ' . $item->sub_criteria }}">
+                                                                {{ $item->sub_criteria }}
+                                                                ({{ $item->range }})
                                                             </option>
                                                         @endif
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="tinggiBadan">Tinggi Badan</label>
+                                                <label for="bobot_tinggiBadan_alternatif">Tinggi Badan</label>
                                                 <select class="form-control select2" style="width: 100%;"
-                                                    name="tinggiBadan">
+                                                    name="bobot_tinggiBadan_alternatif">
                                                     <option selected="selected">Pilih</option>
                                                     @foreach ($items as $item)
                                                         @if ($item->criteria_id == 3)
-                                                            <option>{{ $item->sub_criteria }} ({{ $item->range }})
+                                                            <option
+                                                                value="{{ $item->bobot . ' - ' . $item->sub_criteria }}">
+                                                                {{ $item->sub_criteria }}
+                                                                ({{ $item->range }})
                                                             </option>
                                                         @endif
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="alergi">Alergi</label>
-                                                <select class="form-control select2" style="width: 100%;" name="alergi">
+                                                <label for="bobot_alergi_alternatif">Alergi</label>
+                                                <select class="form-control select2" style="width: 100%;"
+                                                    name="bobot_alergi_alternatif">
                                                     <option selected="selected">Pilih</option>
                                                     @foreach ($items as $item)
                                                         @if ($item->criteria_id == 4)
-                                                            <option>{{ $item->sub_criteria }}</option>
+                                                            <option
+                                                                value="{{ $item->bobot . ' - ' . $item->sub_criteria }}">
+                                                                {{ $item->sub_criteria }}
+                                                            </option>
                                                         @endif
                                                     @endforeach
                                                 </select>

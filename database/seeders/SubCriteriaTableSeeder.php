@@ -18,7 +18,7 @@ class SubCriteriaTableSeeder extends Seeder
             [
                 'criteria_id' => '1',
                 'umur' => '-',
-                'sub_criteria' => '> 4 s/d <= 5 Tahun',
+                'sub_criteria' => '>4 s/d <=5 Tahun',
                 'range' => '-',
                 'bobot' => '4',
                 'created_at' => date('Y-m-d H:i:s', time()),
@@ -27,7 +27,7 @@ class SubCriteriaTableSeeder extends Seeder
             [
                 'criteria_id' => '1',
                 'umur' => '-',
-                'sub_criteria' => '> 3 s/d <= 4 Tahun',
+                'sub_criteria' => '>3 s/d <=4 Tahun',
                 'range' => '-',
                 'bobot' => '4',
                 'created_at' => date('Y-m-d H:i:s', time()),
@@ -36,7 +36,7 @@ class SubCriteriaTableSeeder extends Seeder
             [
                 'criteria_id' => '1',
                 'umur' => '-',
-                'sub_criteria' => '> 2 s/d <= 3 Tahun',
+                'sub_criteria' => '>2 s/d <=3 Tahun',
                 'range' => '-',
                 'bobot' => '5',
                 'created_at' => date('Y-m-d H:i:s', time()),

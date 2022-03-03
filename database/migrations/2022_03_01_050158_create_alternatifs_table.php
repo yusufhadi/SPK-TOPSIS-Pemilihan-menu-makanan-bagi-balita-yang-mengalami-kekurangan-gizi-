@@ -17,9 +17,13 @@ class CreateAlternatifsTable extends Migration
             $table->id();
             $table->string('alternatif');
             $table->string('umur');
+            $table->string('bobot_umur');
             $table->string('beratBadan');
+            $table->string('bobot_beratBadan');
             $table->string('tinggiBadan');
+            $table->string('bobot_tinggiBadan');
             $table->string('alergi');
+            $table->string('bobot_alergi');
             $table->timestamps();
         });
     }
