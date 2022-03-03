@@ -113,10 +113,33 @@ class PenentuanController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
+        // $a = Penentuan::findOrFail($id);
+        // $a->update($data);
+        $id = $request->id;
+        $Penentuan = Penentuan::where('id', $id)->first();
+        $Penentuan->nama = $request->nama;
 
-        $a = Penentuan::findOrFail($id);
+        $p1 = $request->bobot_umur_penentuan;
+        $arp1 = explode(" - ", $p1);
+        $Penentuan->penentuan_umur = $arp1[0];
+        $Penentuan->umur = $arp1[1];
 
-        $a->update($data);
+        $p2 = $request->bobot_beratBadan_penentuan;
+        $arp2 = explode(" - ", $p2);
+        $Penentuan->penentuan_beratBadan = $arp2[0];
+        $Penentuan->beratBadan = $arp2[1];
+
+        $p3 = $request->bobot_tinggiBadan_penentuan;
+        $arp3 = explode(" - ", $p3);
+        $Penentuan->penentuan_tinggiBadan = $arp3[0];
+        $Penentuan->tinggiBadan = $arp3[1];
+
+        $p4 = $request->bobot_alergi_penentuan;
+        $arp4 = explode(" - ", $p4);
+        $Penentuan->penentuan_alergi = $arp4[0];
+        $Penentuan->alergi = $arp4[1];
+        // dd($Penentuan);
+        $Penentuan->save();
 
         return redirect()->route('penentuan');
     }
