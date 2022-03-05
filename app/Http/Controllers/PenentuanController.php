@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alternatif;
 use App\Models\Penentuan;
 use App\Models\SubCriteria;
 use Illuminate\Http\Request;
@@ -156,5 +157,16 @@ class PenentuanController extends Controller
         $item->delete();
 
         return redirect()->route('penentuan');
+    }
+
+    public function metode()
+    {
+        $Alternatif = Alternatif::get();
+        $Penentuan = Penentuan::get();
+
+        return view('pages.admin.metode', [
+            'Alternatif' => $Alternatif,
+            'Penentuan' => $Penentuan
+        ]);
     }
 }
