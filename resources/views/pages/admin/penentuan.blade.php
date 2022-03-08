@@ -58,8 +58,8 @@
                                                 <td>{{ $item->tinggiBadan }}</td>
                                                 <td>{{ $item->alergi }}</td>
                                                 <td>
-                                                    <a href="{{ route('metode') }}" class="btn btn-primary btn-sm mr-1"> <i
-                                                            class="fas fa-eye"></i>
+                                                    <a href="{{ route('metode', $item->id) }}"
+                                                        class="btn btn-primary btn-sm mr-1"> <i class="fas fa-eye"></i>
                                                     </a>
                                                     <a href="{{ route('edit-data', $item->id) }}"
                                                         class="btn btn-warning btn-sm mr-1">
