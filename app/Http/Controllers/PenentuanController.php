@@ -72,7 +72,7 @@ class PenentuanController extends Controller
         $Penentuan->alergi = $arp4[1];
         // dd($Penentuan);
         $Penentuan->save();
-        return redirect()->route('penentuan');
+        return redirect()->route('penentuan')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -140,7 +140,7 @@ class PenentuanController extends Controller
         $Penentuan->alergi = $arp4[1];
         $Penentuan->save();
 
-        return redirect()->route('penentuan');
+        return redirect()->route('penentuan')->with('success', 'Data Berhasil Diubah');
     }
 
     /**
@@ -154,7 +154,7 @@ class PenentuanController extends Controller
         $item = Penentuan::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('penentuan');
+        return redirect()->route('penentuan')->with('success', 'Data Berhasil Dihapus');
     }
 
     public function metode($id)

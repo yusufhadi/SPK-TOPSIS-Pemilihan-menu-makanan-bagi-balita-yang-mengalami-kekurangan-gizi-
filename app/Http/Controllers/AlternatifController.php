@@ -68,7 +68,7 @@ class AlternatifController extends Controller
         $Alternatif->bobot_alergi = $ark4[0];
         $Alternatif->alergi = $ark4[1];
         $Alternatif->save();
-        return redirect()->route('alternatif');
+        return redirect()->route('alternatif')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function update(Request $request)
@@ -101,7 +101,7 @@ class AlternatifController extends Controller
         $Alternatif->bobot_alergi = $ark4[0];
         $Alternatif->alergi = $ark4[1];
         $Alternatif->save();
-        return redirect()->route('alternatif');
+        return redirect()->route('alternatif')->with('success', 'Data Berhasil Diubah');
     }
 
     /**
@@ -180,6 +180,6 @@ class AlternatifController extends Controller
         $item = Alternatif::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('alternatif');
+        return redirect()->route('alternatif')->with('success', 'Data Berhasil Dihapus');
     }
 }
