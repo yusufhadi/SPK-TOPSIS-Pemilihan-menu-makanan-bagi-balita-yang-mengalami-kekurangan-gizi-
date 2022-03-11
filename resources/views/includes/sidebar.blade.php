@@ -10,13 +10,16 @@
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="{{ url('backend/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
-                    alt="User Image">
-            </div>
-            <div class="info">
-                <a href="{{ route('home') }}" class="d-block">Admin</a>
-            </div>
+            <ul class="nav nav-pills nav-sidebar flex-column">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-white"></i>
+                        <p class="text-white">
+                            {{ Auth::user()->name }}
+                        </p>
+                    </a>
+                </li>
+            </ul>
         </div>
 
         <!-- Sidebar Menu -->
@@ -24,80 +27,92 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
        with font-awesome or any other icon font library -->
-                <li class="nav-item menu-open">
+                <li class="nav-item">
                     <a href="{{ route('home') }}" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
+                        <i class="nav-icon fas fa-tachometer-alt text-white"></i>
+                        <p class="text-white">
                             Dashboard
                         </p>
                     </a>
                 </li>
+
+                @if (Auth::user()->role == 'Admin')
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-table text-white"></i>
+                            <p class="text-white">
+                                Table
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item ">
+                                <a href="{{ route('criteria') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon text-white"></i>
+                                    <p class="text-white">Kriteria</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('umur') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon text-white"></i>
+                                    <p class="text-white">Sub Kriteria Umur</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('berat') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon text-white"></i>
+                                    <p class="text-white">Sub Berat Badan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('tinggi') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon text-white"></i>
+                                    <p class="text-white">Sub Tinggi Badan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('alergi') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon text-white"></i>
+                                    <p class="text-white">Sub Alergi</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Table
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('criteria') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kriteria</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('umur') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Sub Kriteria Umur</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('berat') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Sub Berat Badan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('tinggi') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Sub Tinggi Badan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('alergi') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Sub Alergi</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>
+                        <i class="nav-icon fas fa-edit text-white"></i>
+                        <p class="text-white">
                             Form
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('alternatif') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Alternatif</p>
-                            </a>
-                        </li>
-                    </ul>
+                    @if (Auth::user()->role == 'Admin')
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('alternatif') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon text-white "></i>
+                                    <p class="text-white">Alternatif</p>
+                                </a>
+                            </li>
+                        </ul>
+                    @endif
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('penentuan') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Penentuan</p>
+                                <i class="far fa-circle nav-icon text-white"></i>
+                                <p class="text-white">Penentuan</p>
                             </a>
                         </li>
                     </ul>
                 </li>
+                <form action="{{ route('keluar') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="dropdown-item text-white">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-white"></i>
+                        Logout
+                    </button>
+                </form>
         </nav>
         <!-- /.sidebar-menu -->
     </div>

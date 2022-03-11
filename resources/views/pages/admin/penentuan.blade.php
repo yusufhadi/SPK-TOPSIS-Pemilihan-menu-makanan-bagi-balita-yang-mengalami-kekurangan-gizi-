@@ -26,11 +26,13 @@
                                     <div class="p-2 flex-grow-1 bd-highlight">
                                         <h3 class="card-title">Data Balita</h3>
                                     </div>
-                                    <div class="p-2 bd-highlight">
-                                        <a href="{{ route('form') }}" class="btn btn-info d-flex justify-content-end">
-                                            Tambahkan Data
-                                        </a>
-                                    </div>
+                                    @if (Auth::user()->role == 'Admin')
+                                        <div class="p-2 bd-highlight">
+                                            <a href="{{ route('form') }}" class="btn btn-info d-flex justify-content-end">
+                                                Tambahkan Data
+                                            </a>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
 
