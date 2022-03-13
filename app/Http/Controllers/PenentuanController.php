@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+// use ___PHPSTORM_HELPERS\object;
 use App\Models\Alternatif;
 use App\Models\Penentuan;
 use App\Models\SubCriteria;
@@ -159,20 +160,21 @@ class PenentuanController extends Controller
 
     public function metode($id)
     {
-        $Alternatif1 = Alternatif::all();
         $Alternatif = Alternatif::select('alternatif', 'bobot_umur', 'bobot_beratBadan', 'bobot_tinggiBadan', 'bobot_alergi')->get();
 
         //pembuatan matrik 2 dimensi alternatif
         $matriks = array();
         for ($i = 0; $i < sizeof($Alternatif); $i++) {
-            for ($j = 0; $j < 4; $j++) {
+            for ($j = 0; $j <= 4; $j++) {
                 if ($j == 0) {
-                    $matriks[$i][$j] = $Alternatif[$i]->bobot_umur;
+                    $matriks[$i][$j] = $Alternatif[$i]->alternatif;
                 } else if ($j == 1) {
-                    $matriks[$i][$j] = $Alternatif[$i]->bobot_beratBadan;
+                    $matriks[$i][$j] = $Alternatif[$i]->bobot_umur;
                 } else if ($j == 2) {
-                    $matriks[$i][$j] = $Alternatif[$i]->bobot_tinggiBadan;
+                    $matriks[$i][$j] = $Alternatif[$i]->bobot_beratBadan;
                 } else if ($j == 3) {
+                    $matriks[$i][$j] = $Alternatif[$i]->bobot_tinggiBadan;
+                } else if ($j == 4) {
                     $matriks[$i][$j] = $Alternatif[$i]->bobot_alergi;
                 }
             };
@@ -180,7 +182,7 @@ class PenentuanController extends Controller
 
         //pembuatan data pembagi
         $pembagi = array();
-        for ($i = 0; $i < 4; $i++) {
+        for ($i = 1; $i <= 4; $i++) {
             $jumlah = 0;
             for ($j = 0; $j < sizeof($Alternatif); $j++) {
                 $jumlah +=  pow($matriks[$j][$i], 2);
@@ -192,8 +194,12 @@ class PenentuanController extends Controller
         //table normalisasi
         $normalisasi = array();
         for ($k = 0; $k < sizeof($Alternatif); $k++) {
-            for ($l = 0; $l < 4; $l++) {
-                $normalisasi[$k][$l] = $matriks[$k][$l] / $pembagi[$l];
+            for ($l = 0; $l <= 4; $l++) {
+                if ($l == 0) {
+                    $normalisasi[$k][$l] = $matriks[$k][$l];
+                } else {
+                    $normalisasi[$k][$l] = $matriks[$k][$l] / $pembagi[$l];
+                }
             };
         };
 
@@ -210,8 +216,12 @@ class PenentuanController extends Controller
         //table normalisasi terbobot
         $terbobot = array();
         for ($k = 0; $k < sizeof($normalisasi); $k++) {
-            for ($l = 0; $l < 4; $l++) {
-                $terbobot[$k][$l] = $normalisasi[$k][$l] * $matriks_penentuan[$l];
+            for ($l = 0; $l <= 4; $l++) {
+                if ($l == 0) {
+                    $terbobot[$k][$l] = $matriks[$k][$l];
+                } else {
+                    $terbobot[$k][$l] = $normalisasi[$k][$l] * $matriks_penentuan[$l - 1];
+                }
             };
         };
 
@@ -219,11 +229,11 @@ class PenentuanController extends Controller
         $max = array();
         $min = array();
         $solusi = array();
-        for ($i = 0; $i < 4; $i++) {
+        for ($i = 1; $i <= 4; $i++) {
             for ($j = 0; $j < sizeof($terbobot); $j++) {
                 $solusi[$j] = $terbobot[$j][$i];
             };
-            if ($i != 3) { //3 itu index untuk alergi (benefit)
+            if ($i != 4) { //3 itu index untuk alergi (benefit)
                 $max[$i] = min($solusi);
                 $min[$i] = max($solusi);
             } else {
@@ -235,12 +245,10 @@ class PenentuanController extends Controller
         // nilai d+ dan d-
         $d_plus = array();
         $d_min = array();
-        $tes = array();
         for ($i = 0; $i < sizeof($terbobot); $i++) {
             $total_jumblah_plus = 0;
             $total_jumblah_min = 0;
-            $c = "";
-            for ($j = 0; $j < 4; $j++) {
+            for ($j = 1; $j <= 4; $j++) {
                 $total_jumblah_plus += pow(($max[$j] - $terbobot[$i][$j]), 2);
                 $total_jumblah_min +=  pow(($min[$j] - $terbobot[$i][$j]), 2);
             };
@@ -261,11 +269,31 @@ class PenentuanController extends Controller
             };
         };
 
-        // dd($total_preferensi);
+
+
+        $tabeld = array();
+        for ($i = 0; $i < sizeof($terbobot); $i++) {
+
+            $tabeld[$i][0] = $terbobot[$i][0];
+            $tabeld[$i][1] = $d_plus[$i];
+            $tabeld[$i][2] = $d_min[$i];
+            $tabeld[$i][3] = $total_preferensi[$i];
+        };
+
+        $hasil = array();
+        $h = max($total_preferensi);
+        for ($i = 0; $i < sizeof($tabeld); $i++) {
+            if ($tabeld[$i][3] == $h) {
+                $hasil[0] = $tabeld[$i][0];
+                $hasil[1] = $tabeld[$i][3];
+            }
+        };
+
+        // dd($hasil);
+
 
         return view('pages.admin.metode', [
             'Alternatif' => $Alternatif,
-            'Alternatif1' => $Alternatif1,
             'Penentuan' => $Penentuan,
             'pembagi' => $pembagi,
             'normalisasi' => $normalisasi,
@@ -274,7 +302,9 @@ class PenentuanController extends Controller
             'min' => $min,
             'd_plus' => $d_plus,
             'd_min' => $d_min,
-            'total_preferensi' => $total_preferensi
+            'total_preferensi' => $total_preferensi,
+            'tabeld' => $tabeld,
+            'hasil' => $hasil
         ]);
     }
 }

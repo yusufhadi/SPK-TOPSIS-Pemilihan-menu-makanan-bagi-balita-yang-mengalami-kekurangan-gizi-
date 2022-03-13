@@ -138,7 +138,6 @@
                                         @foreach ($normalisasi as $n)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td></td>
                                                 @foreach ($n as $item)
                                                     <td>
                                                         {{ $item }}
@@ -170,7 +169,6 @@
                                         @foreach ($terbobot as $n)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td></td>
                                                 @foreach ($n as $item)
                                                     <td>
                                                         {{ $item }}
@@ -227,20 +225,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($d_plus as $a)
+
+                                        @foreach ($tabeld as $item)
                                             <tr>
-                                                <td>{{ $a }}</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>{{ $item['1'] }}</td>
+                                                <td>{{ $item['0'] }}</td>
+                                                <td>{{ $item['2'] }}</td>
                                             </tr>
                                         @endforeach
-                                        @foreach ($d_min as $aa)
+
+                                        {{-- @for ($i = 0; $i < sizeof($nilai_plus_min->d_plus); $i++)
                                             <tr>
+                                                <td>{{ $nilai_plus_min->d_plus[$i] }}</td>
                                                 <td></td>
-                                                <td></td>
-                                                <td>{{ $aa }}</td>
+                                                <td>{{ $nilai_plus_min->d_min[$i] }}</td>
+
                                             </tr>
-                                        @endforeach
+                                        @endfor --}}
                                     </tbody>
                                 </table>
                                 <br>
@@ -259,15 +260,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($total_preferensi as $item)
+                                        @foreach ($tabeld as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td></td>
-                                                <td>{{ $item }}</td>
+                                                <td>{{ $item['0'] }}</td>
+                                                <td>{{ $item['3'] }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <br>
+                                <hr>
+                                <h3 class="card-title">Makanan yang direkomendasikan adalah :
+                                    <b>{{ $hasil[0] }}</b>
+                                </h3>
                             </div>
                             <!-- /.card-body -->
                         </div>
