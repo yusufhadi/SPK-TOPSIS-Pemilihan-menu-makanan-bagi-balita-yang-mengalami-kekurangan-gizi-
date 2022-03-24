@@ -13,7 +13,7 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: rgba(255, 1, 1, 0.1)
+            background-color: rgb(255, 255, 255)
         }
 
         .card {
@@ -21,7 +21,7 @@
             border-radius: 5;
             width: 420px !important;
             margin: 0 auto;
-            margin-top: 40%;
+            /* margin-top: 40%; */
         }
 
         .signup {
@@ -36,7 +36,7 @@
         }
 
         h5 {
-            color: #ff0147;
+            color: #186301;
             margin-bottom: 3px;
             font-weight: bold
         }
@@ -52,14 +52,14 @@
         }
 
         .form-control {
-            border: 1px solid #dc354575;
+            border: 1px solid #186301;
             border-radius: 30px;
             background-color: rgba(0, 0, 0, .075);
             letter-spacing: 1px
         }
 
         .form-control:focus {
-            border: 0.5px solid #dc354575;
+            border: 0.5px solid #186301;
             border-radius: 30px;
             box-shadow: none;
             background-color: rgba(0, 0, 0, .075);
@@ -72,8 +72,8 @@
             width: 100%;
             border-radius: 30px;
             border: none;
-            background: linear-gradient(to right, rgba(249, 0, 104, 1) 0%, rgba(247, 117, 24, 1) 100%);
-            background: -webkit-linear-gradient(left, rgba(249, 0, 104, 1) 0%, rgba(247, 117, 24, 1) 100%)
+            background: linear-gradient(to right, rgba(24, 99, 1) 0%, rgba(73, 161, 65) 100%);
+            background: -webkit-linear-gradient(left, rgba(24, 99, 1) 0%, rgba(73, 161, 65) 100%)
         }
 
         .text-left {
@@ -116,7 +116,8 @@
             <div class="col-md-6 mx-auto py-4 px-0">
                 <div class="card p-0">
                     <div class="card-title text-center">
-                        <h5 class="mt-5">SELAMAT DATANG</h5> <small class="para">Sistem Pendukung
+                        <img src="{{ url('backend/dist/img/Logo.png') }}" width="200" ">
+                        <h5 class="         mt-2">SELAMAT DATANG</h5> <small class="para">Sistem Pendukung
                             Keputusan Pemilihan Menu Makanan Bagi Balita Yang Mengalami Kekurangan Gizi</small>
                     </div>
                     <form class="signup" action="{{ route('login') }}" method="POST">

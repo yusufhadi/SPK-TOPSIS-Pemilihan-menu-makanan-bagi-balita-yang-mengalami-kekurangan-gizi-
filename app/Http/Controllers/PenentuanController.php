@@ -204,8 +204,7 @@ class PenentuanController extends Controller
         };
 
         //pembuatan matriks penentuan
-        $Penentuan = Penentuan::get();
-        $id = 1;
+        // $Penentuan = Penentuan::get()->where('id', $id)->first();
         $MPenentuan = Penentuan::select('nama', 'penentuan_umur', 'penentuan_beratBadan', 'penentuan_tinggiBadan', 'penentuan_alergi')->where('id', $id)->first();
         $matriks_penentuan = array();
         $matriks_penentuan[0] = $MPenentuan->penentuan_umur;
@@ -294,7 +293,7 @@ class PenentuanController extends Controller
 
         return view('pages.admin.metode', [
             'Alternatif' => $Alternatif,
-            'Penentuan' => $Penentuan,
+            'MPenentuan' => $MPenentuan,
             'pembagi' => $pembagi,
             'normalisasi' => $normalisasi,
             'terbobot' => $terbobot,

@@ -30,29 +30,25 @@
                                 <table id="example1" class="table table-bordered table-striped fixed">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
+                                            {{-- <th>No</th> --}}
                                             <th>Nama Balita</th>
                                             <th>Umur</th>
-                                            <th>Tinggi Badan</th>
                                             <th>Berat Badan</th>
+                                            <th>Tinggi Badan</th>
                                             <th>Alergi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse ($Penentuan as $a)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $a->nama }}</td>
-                                                <td>{{ $a->penentuan_umur }}</td>
-                                                <td>{{ $a->penentuan_beratBadan }}</td>
-                                                <td>{{ $a->penentuan_tinggiBadan }}</td>
-                                                <td>{{ $a->penentuan_alergi }}</td>
-                                            </tr>
-                                        @empty
-                                            <tr>
-                                                <td colspan="6" class="text-center">Tidak Ada Data</td>
-                                            </tr>
-                                        @endforelse
+                                        {{-- @forelse ($Penentuan as $a) --}}
+                                        <tr>
+                                            {{-- <td>{{ $loop->iteration }}</td> --}}
+                                            <td>{{ $MPenentuan->nama }}</td>
+                                            <td>{{ $MPenentuan->penentuan_umur }}</td>
+                                            <td>{{ $MPenentuan->penentuan_beratBadan }}</td>
+                                            <td>{{ $MPenentuan->penentuan_tinggiBadan }}</td>
+                                            <td>{{ $MPenentuan->penentuan_alergi }}</td>
+                                        </tr>
+                                        {{-- @endforelse --}}
                                     </tbody>
                                 </table>
                                 <br>
@@ -233,15 +229,6 @@
                                                 <td>{{ $item['2'] }}</td>
                                             </tr>
                                         @endforeach
-
-                                        {{-- @for ($i = 0; $i < sizeof($nilai_plus_min->d_plus); $i++)
-                                            <tr>
-                                                <td>{{ $nilai_plus_min->d_plus[$i] }}</td>
-                                                <td></td>
-                                                <td>{{ $nilai_plus_min->d_min[$i] }}</td>
-
-                                            </tr>
-                                        @endfor --}}
                                     </tbody>
                                 </table>
                                 <br>

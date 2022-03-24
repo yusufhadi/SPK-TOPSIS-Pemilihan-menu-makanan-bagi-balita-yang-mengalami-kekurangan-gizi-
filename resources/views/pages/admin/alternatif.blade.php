@@ -43,8 +43,8 @@
                                             <th>No</th>
                                             <th>Alternatif</th>
                                             <th>Umur</th>
-                                            <th>Tinggi Badan</th>
                                             <th>Berat Badan</th>
+                                            <th>Tinggi Badan</th>
                                             <th>Alergi</th>
                                             <th>Action</th>
                                         </tr>
