@@ -45,7 +45,7 @@
                                                 <select class="form-control select2" style="width: 100%;"
                                                     name="bobot_umur_alternatif">
                                                     <option selected="selected">Pilih</option>
-                                                    @foreach ($items as $item)
+                                                    @foreach ($ages as $item)
                                                         @if ($item->criteria_id == 1)
                                                             <option
                                                                 value="{{ $item->bobot . ' - ' . $item->sub_criteria }}">
@@ -60,12 +60,12 @@
                                                 <select class="form-control select2" style="width: 100%;"
                                                     name="bobot_beratBadan_alternatif">
                                                     <option selected="selected">Pilih</option>
-                                                    @foreach ($items as $item)
+                                                    @foreach ($weights as $item)
                                                         @if ($item->criteria_id == 2)
                                                             <option
                                                                 value="{{ $item->bobot . ' - ' . $item->sub_criteria }}">
                                                                 {{ $item->sub_criteria }}
-                                                                ({{ $item->range }})
+                                                                {{-- ({{ $item->range }}) --}}
                                                             </option>
                                                         @endif
                                                     @endforeach
@@ -76,12 +76,12 @@
                                                 <select class="form-control select2" style="width: 100%;"
                                                     name="bobot_tinggiBadan_alternatif">
                                                     <option selected="selected">Pilih</option>
-                                                    @foreach ($items as $item)
+                                                    @foreach ($highs as $item)
                                                         @if ($item->criteria_id == 3)
                                                             <option
                                                                 value="{{ $item->bobot . ' - ' . $item->sub_criteria }}">
                                                                 {{ $item->sub_criteria }}
-                                                                ({{ $item->range }})
+                                                                {{-- ({{ $item->range }}) --}}
                                                             </option>
                                                         @endif
                                                     @endforeach
@@ -92,7 +92,7 @@
                                                 <select class="form-control select2" style="width: 100%;"
                                                     name="bobot_alergi_alternatif">
                                                     <option selected="selected">Pilih</option>
-                                                    @foreach ($items as $item)
+                                                    @foreach ($allergy as $item)
                                                         @if ($item->criteria_id == 4)
                                                             <option
                                                                 value="{{ $item->bobot . ' - ' . $item->sub_criteria }}">

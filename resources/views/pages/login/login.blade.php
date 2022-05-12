@@ -116,7 +116,7 @@
             <div class="col-md-6 mx-auto py-4 px-0">
                 <div class="card p-0">
                     <div class="card-title text-center">
-                        <img src="{{ url('backend/dist/img/Logo.png') }}" width="200" ">
+                        <img src="{{ url('backend/dist/img/Logo.png') }}" width="200">
                         <h5 class="         mt-2">SELAMAT DATANG</h5> <small class="para">Sistem Pendukung
                             Keputusan Pemilihan Menu Makanan Bagi Balita Yang Mengalami Kekurangan Gizi</small>
                     </div>

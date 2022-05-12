@@ -31,9 +31,15 @@ class PenentuanController extends Controller
      */
     public function create()
     {
-        $items = SubCriteria::get();
+        $ages = SubCriteria::where('criteria_id', '1')->get();
+        $weights = SubCriteria::where('criteria_id', '2')->where('umur', '1 Tahun')->get();
+        $highs = SubCriteria::where('criteria_id', '3')->where('umur', '1 Tahun')->get();
+        $allergy = SubCriteria::where('criteria_id', '4')->get();
         return view('pages.admin.formData', [
-            'items' => $items
+            'ages' => $ages,
+            'weights' => $weights,
+            'highs' => $highs,
+            'allergy' => $allergy
         ]);
     }
 
@@ -263,8 +269,8 @@ class PenentuanController extends Controller
         $total_preferensi = array();
         for ($i = 0; $i < sizeof($d_plus); $i++) {
             for ($j = 0; $j < sizeof($d_min); $j++) {
-                $preferensi[] = $d_plus[$j] + $d_min[$j];
-                $total_preferensi[$j] = $d_plus[$j] / $preferensi[$j];
+                $preferensi[] = $d_min[$j] + $d_plus[$j];
+                $total_preferensi[$j] = $d_min[$j] / $preferensi[$j];
             };
         };
 

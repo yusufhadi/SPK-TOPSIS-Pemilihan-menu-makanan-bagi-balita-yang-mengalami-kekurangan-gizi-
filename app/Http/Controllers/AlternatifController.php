@@ -28,9 +28,16 @@ class AlternatifController extends Controller
      */
     public function create()
     {
-        $items = SubCriteria::get();
+        // $items = SubCriteria::get();
+        $ages = SubCriteria::where('criteria_id', '1')->get();
+        $weights = SubCriteria::where('criteria_id', '2')->where('umur', '1 Tahun')->get();
+        $highs = SubCriteria::where('criteria_id', '3')->where('umur', '1 Tahun')->get();
+        $allergy = SubCriteria::where('criteria_id', '4')->get();
         return view('pages.admin.formAlternatif', [
-            'items' => $items
+            'ages' => $ages,
+            'weights' => $weights,
+            'highs' => $highs,
+            'allergy' => $allergy
         ]);
     }
 

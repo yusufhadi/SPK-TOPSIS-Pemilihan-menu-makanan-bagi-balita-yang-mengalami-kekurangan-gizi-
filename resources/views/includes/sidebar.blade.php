@@ -2,8 +2,9 @@
     <!-- Brand Logo -->
     <a href="{{ route('home') }}" class="brand-link">
         <img src="{{ url('backend/dist/img/Logo.png') }}" alt="AdminLTE Logo"
-            class="brand-image img-circle elevation-3">
-        <span class="brand-text font-weight-bold">PUSKESMAS</span>
+            class="brand-image img-circle elevation-3  mt-2">
+        <span class="brand-text font-weight-bold">PUSKESMAS</span><br>
+        <span class="brand-text font-weight-bold">MANIANGPAJO</span>
     </a>
 
     <!-- Sidebar -->

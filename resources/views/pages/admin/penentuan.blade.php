@@ -64,10 +64,10 @@
                                                         class="btn btn-primary btn-sm mr-1"> <i class="fas fa-eye"></i>
                                                     </a>
                                                     @if (Auth::user()->role == 'Admin')
-                                                        <a href="{{ route('edit-data', $item->id) }}"
+                                                        {{-- <a href="{{ route('edit-data', $item->id) }}"
                                                             class="btn btn-warning btn-sm mr-1">
                                                             <i class="fa fa-pencil-alt"></i>
-                                                        </a>
+                                                        </a> --}}
                                                         <a href="{{ route('hapus-data', $item->id) }}"
                                                             class="btn btn-danger btn-sm">
                                                             <i class="fa fa-trash-alt"></i>
